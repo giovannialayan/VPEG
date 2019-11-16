@@ -7,6 +7,9 @@ public class Attraction : MonoBehaviour
     //rigid bodies of objects with this script attatched
     public Rigidbody2D rigidBody;
 
+    //Will objects attract and do all that stuff they usually do?
+    public bool physicsEnabled;
+
     //the ObjectManager of the current scene
     private ObjectManager objectManager;
 
@@ -18,6 +21,8 @@ public class Attraction : MonoBehaviour
         rigidBody = gameObject.GetComponent<Rigidbody2D>();
 
         objectManager = FindObjectOfType<ObjectManager>();
+
+        physicsEnabled = true;
 
         //set Particle based on which List in objectManager it is in
         if (objectManager.protons.Contains(gameObject))
@@ -44,7 +49,10 @@ public class Attraction : MonoBehaviour
 
         //if: is playing.
         //if: within max distance.
-        AttractAll();
+        if (physicsEnabled)
+        {
+            AttractAll();
+        }
     }
 
     /// <summary>
