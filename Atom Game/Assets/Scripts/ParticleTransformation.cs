@@ -51,7 +51,7 @@ public class ParticleTransformation : MonoBehaviour
     {
         string collType = collider.gameObject.tag;
 
-        Particle collParticle = collision.gameObject.GetComponent<Force>().particle;
+        Particle collParticle = collider.gameObject.GetComponent<Force>().particle;
 
         //create a nucleus if a proton and neutron collide
         if (isProton && collType == "neutron")
@@ -91,24 +91,29 @@ public class ParticleTransformation : MonoBehaviour
         else if(particle == Particle.atom && collParticle == Particle.atom)
         {
             Atom atom1 = gameObject.GetComponent<Atom>();
-            Atom atom2 = gameObject.GetComponent<Atom>();
+            Atom atom2 = collider.gameObject.GetComponent<Atom>();
 
-            //create new atom
-            objectManager.InstantiateAtom(
-                atom1.protons + atom2.protons, 
-                atom1.neutrons + atom2.neutrons, 
-                atom1.electrons + atom2.electrons, 
-                gameObject.transform.position);
+            if (atom1.charge > 0)
+            {
+                //create new atom
+                objectManager.InstantiateAtom(
+                    atom1.protons + atom2.protons,
+                    atom1.neutrons + atom2.neutrons,
+                    atom1.electrons + atom2.electrons,
+                    gameObject.transform.position);
 
-            //remove atoms from object manager
-            int indexToRemove = objectManager.atoms.IndexOf(atom1);
-            objectManager.atoms.RemoveAt(indexToRemove);
-            indexToRemove = objectManager.atoms.IndexOf(atom2);
-            objectManager.atoms.RemoveAt(indexToRemove);
+                //remove atoms from object manager
+                int indexToRemove = objectManager.atoms.IndexOf(atom1);
+                objectManager.atoms.RemoveAt(indexToRemove);
+                indexToRemove = objectManager.atoms.IndexOf(atom2);
+                objectManager.atoms.RemoveAt(indexToRemove);
 
-            //destroy og atoms
-            Destroy(atom1.gameObject);
-            Destroy(atom2.gameObject);
+                //destroy og atoms
+                Destroy(atom1.gameObject);
+                Destroy(atom2.gameObject);
+            }
         }
+
+
     }
 }
