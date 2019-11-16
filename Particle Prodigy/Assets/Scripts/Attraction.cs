@@ -93,7 +93,7 @@ public class Attraction : Force
     {
         foreach (GameObject objAttracting in objsAttracting)
         {
-            Attract(objAttracting.GetComponent<Attraction>());
+            Attract(objAttracting?.GetComponent<Attraction>());
         }
     }
 }
