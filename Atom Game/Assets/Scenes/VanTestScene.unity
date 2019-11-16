@@ -258,3 +258,4 @@ MonoBehaviour:
   neutrons: []
   electrons: []
   atoms: []
+  physicsEnabled: 0
