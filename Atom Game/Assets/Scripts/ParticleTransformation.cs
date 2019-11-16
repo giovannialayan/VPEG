@@ -73,7 +73,7 @@ public class ParticleTransformation : MonoBehaviour
             //remove nucleus and electron from object manager's lists
             int indexToRemove = objectManager.atoms.IndexOf(gameObject.GetComponent<Atom>());
             objectManager.atoms.RemoveAt(indexToRemove);
-            indexToRemove = objectManager.electrons.IndexOf(collision.gameObject);
+            indexToRemove = objectManager.electrons.IndexOf(collider.gameObject);
             objectManager.electrons.RemoveAt(indexToRemove);
 
             //destroy nucleus and electron
