@@ -42,6 +42,8 @@ public class Attraction : MonoBehaviour
     {
         //AttractAllOfAttraction();
 
+        //if: is playing.
+        //if: within max distance.
         AttractAll();
     }
 
