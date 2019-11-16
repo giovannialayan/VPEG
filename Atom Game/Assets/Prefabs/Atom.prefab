@@ -121,7 +121,6 @@ MonoBehaviour:
   neutrons: 0
   electrons: 0
   diameter: 0
-  dCoefficient: 1.5
 --- !u!114 &-7413950953945975948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,4 +133,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cedfa257e1dbd24cb7041c367c2f085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidBody: {fileID: 0}
+  rigidBody: {fileID: 5943304797355055050}
