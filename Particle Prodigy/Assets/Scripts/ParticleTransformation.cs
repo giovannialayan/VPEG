@@ -138,5 +138,34 @@ public class ParticleTransformation : MonoBehaviour
             //destroy electron
             Destroy(collider.gameObject);
         }
+        //atom collides with neutron change neutron count
+        else if (isAtom && collType == "neutron")
+        {
+            //change atom's values
+            Atom atom = gameObject.GetComponent<Atom>();
+            atom.neutrons++;
+
+            //remove neutron from object manager's list
+            int indexToRemove = objectManager.neutrons.IndexOf(collider.gameObject);
+            objectManager.neutrons.RemoveAt(indexToRemove);
+
+            //destroy electron
+            Destroy(collider.gameObject);
+        }
+        //atom collides with proton change charge of atom
+        else if (isAtom && collType == "proton")
+        {
+            //change atom's values
+            Atom atom = gameObject.GetComponent<Atom>();
+            atom.protons++;
+            atom.charge++;
+
+            //remove neutron from object manager's list
+            int indexToRemove = objectManager.protons.IndexOf(collider.gameObject);
+            objectManager.protons.RemoveAt(indexToRemove);
+
+            //destroy electron
+            Destroy(collider.gameObject);
+        }
     }
 }
