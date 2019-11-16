@@ -24,13 +24,13 @@ public class ObjectManager : MonoBehaviour
         electrons = new List<GameObject>();
         atoms = new List<Atom>();
 
-        /*test instantiation (comment me out pls)*/
+        /*test instantiation (comment me out pls)
         InstantiateSP(Particle.proton, new Vector3(0, 0, 0));
         InstantiateSP(Particle.electron, new Vector3(3, 3, 0));
         InstantiateSP(Particle.neutron, new Vector3(-3, -3, 0));
         InstantiateAtom(3, 3, 2, new Vector3(3, 0, 0));
         InstantiateAtom(2, 3, 3, new Vector3(0, 3, 0));
-        //*/
+        */
     }
 
     /// <summary>
