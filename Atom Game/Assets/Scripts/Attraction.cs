@@ -13,7 +13,10 @@ public class Attraction : MonoBehaviour
         Attraction[] attractions = FindObjectsOfType<Attraction>();
         foreach(Attraction attraction in attractions)
         {
-            Attract(attraction);
+            if (gameObject.name != attraction.gameObject.name)
+            {
+                Attract(attraction);
+            }
         }
     }
 
