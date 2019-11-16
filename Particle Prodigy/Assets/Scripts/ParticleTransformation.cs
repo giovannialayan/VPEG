@@ -127,7 +127,7 @@ public class ParticleTransformation : MonoBehaviour
             }
             else
             {
-                objectManager.justAtomAtomCollided = false;
+                objectManager.justAtomAtomCollided--;
             }
         }
         //atom collides with electron change charge of atom
@@ -159,10 +159,6 @@ public class ParticleTransformation : MonoBehaviour
             //destroy electron
             Destroy(collider.gameObject);
         }
-                objectManager.justAtomAtomCollided --;
-            }
-        }
-    }
         //atom collides with proton change charge of atom
         else if (isAtom && collType == "proton")
         {
