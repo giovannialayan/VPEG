@@ -42,6 +42,12 @@ public class Attraction : MonoBehaviour
     {
         //AttractAllOfAttraction();
 
+        List<Attraction> currentAttractions = new List<Attraction>();
+        Attraction[] attractions = GameObject.FindObjectsOfType<Attraction>();
+        foreach (Attraction attraction in attractions)
+        {
+            currentAttractions.Add(attraction);
+        }
         AttractAll();
     }
 

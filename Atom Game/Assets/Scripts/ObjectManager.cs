@@ -33,6 +33,11 @@ public class ObjectManager : MonoBehaviour
         */
     }
 
+    private void Update()
+    {
+
+    }
+
     /// <summary>
     /// instantiates a sub particle
     /// </summary>
@@ -69,9 +74,11 @@ public class ObjectManager : MonoBehaviour
     /// <param name="neutrons">number of neutrons in the Atom</param>
     /// <param name="electrons">number of electrons in the Atom</param>
     /// <param name="position">position in world space to instantiate prefab at</param>
-    public void InstantiateAtom(int protons, int neutrons, int electrons, Vector3 position)
+    public GameObject InstantiateAtom(int protons, int neutrons, int electrons, Vector3 position)
     {
-        atoms.Add(Instantiate(atomPrefab, position, Quaternion.identity).GetComponent<Atom>());
+        GameObject newAtom = Instantiate(atomPrefab, position, Quaternion.identity);
+        atoms.Add(newAtom.GetComponent<Atom>());
         atoms[atoms.Count - 1].Init(protons, neutrons, electrons);
+        return newAtom;
     }
 }

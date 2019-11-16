@@ -13,15 +13,15 @@ public class particleSelection : MonoBehaviour
     //set particle to which ever particle object this script is attatched to
     void Start()
     {
-        if (gameObject.tag == "proton")
+        if (gameObject.name == "Proton")
         {
             particle = Particle.proton;
         }
-        else if (gameObject.tag == "electron")
+        else if (gameObject.name == "Electron")
         {
             particle = Particle.electron;
         }
-        else if (gameObject.tag == "neutron")
+        else if (gameObject.name == "Neutron")
         {
             particle = Particle.neutron;
         }
