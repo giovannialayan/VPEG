@@ -13,12 +13,19 @@ public class Force : MonoBehaviour
     //the type of particle this object is
     protected Particle particle;
 
+    /// <summary>
+    /// Can this particle interact with other particles?
+    /// </summary>
+    protected bool physicsEnabled;
+
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = gameObject.GetComponent<Rigidbody2D>();
 
         objectManager = FindObjectOfType<ObjectManager>();
+
+        physicsEnabled = true;
 
         //set Particle based on which List in objectManager it is in
         if (objectManager.protons.Contains(gameObject))
@@ -38,4 +45,8 @@ public class Force : MonoBehaviour
             particle = Particle.atom;
         }
     }
+
+    public void DisableForce() { physicsEnabled = false; }
+
+    public void EnableForce() { physicsEnabled = true; }
 }

@@ -8,7 +8,7 @@ public class Repelling : Force
     {
         //RepelAllOfRepelling();
 
-
+        RepelAll();
     }
 
     /// <summary>
@@ -35,7 +35,7 @@ public class Repelling : Force
         Repelling[] repellings = FindObjectsOfType<Repelling>();
         foreach (Repelling repelling in repellings)
         {
-            if (gameObject.name != repelling.name)
+            if (gameObject != repelling.gameObject)
             {
                 Repel(repelling);
             }
@@ -45,14 +45,14 @@ public class Repelling : Force
     /// <summary>
     /// repels all particles based on subatomic forces
     /// </summary>
-    private void repelAll()
+    private void RepelAll()
     {
         //protons repel
         if (particle == Particle.proton)
         {
             foreach(GameObject proton in objectManager.protons)
             {
-                if(proton.name != gameObject.name)
+                if(proton.gameObject != gameObject)
                 {
                     Repel(proton.GetComponent<Repelling>());
                 }

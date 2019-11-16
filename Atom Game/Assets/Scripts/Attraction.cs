@@ -37,7 +37,7 @@ public class Attraction : Force
         Attraction[] attractions = FindObjectsOfType<Attraction>();
         foreach (Attraction attraction in attractions)
         {
-            if (gameObject.name != attraction.name)
+            if (gameObject != attraction.gameObject)
             {
                 Attract(attraction);
             }

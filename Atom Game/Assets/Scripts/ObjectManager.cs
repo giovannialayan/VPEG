@@ -25,13 +25,18 @@ public class ObjectManager : MonoBehaviour
         atoms = new List<Atom>();
 
         /*test instantiation (comment me out pls)
-        InstantiateSubParticle(Particle.proton, new Vector3(-2, 0, 0));
-        InstantiateSubParticle()
-        InstantiateSubParticle(Particle.electron, new Vector3(3, 3, 0));
+        InstantiateSubParticle(Particle.proton, new Vector3(-2, -2, 0));
+        InstantiateSubParticle(Particle.proton, new Vector3(2, 2, 0));
+        InstantiateSubParticle(Particle.electron, new Vector3(4, 3, 0));
+        InstantiateSubParticle(Particle.electron, new Vector3(6, 4, 0));
         InstantiateSubParticle(Particle.neutron, new Vector3(-3, -3, 0));
-        InstantiateAtom(3, 3, 2, new Vector3(3, 0, 0));
+        InstantiateAtom(3, 3, 2, new Vector3(-5, 3, 0));
+        InstantiateAtom(5, 5, 2, new Vector3(-5, 6, 0));
         InstantiateAtom(2, 3, 3, new Vector3(0, 3, 0));
         */
+        
+        
+        
     }
 
     private void Update()
