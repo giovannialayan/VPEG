@@ -28,9 +28,13 @@ public class Attraction : MonoBehaviour
         {
             particle = Particle.neutron;
         }
-        else
+        else if(objectManager.electrons.Contains(gameObject))
         {
             particle = Particle.electron;
+        }
+        else
+        {
+            particle = Particle.atom;
         }
     }
 
