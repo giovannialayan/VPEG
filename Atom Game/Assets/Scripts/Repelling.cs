@@ -2,22 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Repelling : MonoBehaviour
+public class Repelling : Force
 {
-    //rigid bodies of objects with this script attatched
-    public Rigidbody2D rigidBody;
-
     private void FixedUpdate()
     {
-        //repel all objects with this script from this object
-        Repelling[] repels = FindObjectsOfType<Repelling>();
-        foreach (Repelling repelling in repels)
-        {
-            if (gameObject.name != repelling.gameObject.name)
-            {
-                Repel(repelling);
-            }
-        }
+        //RepelAllOfRepelling();
+
+
     }
 
     /// <summary>
@@ -34,5 +25,71 @@ public class Repelling : MonoBehaviour
         float forceMagnitude = (rigidBody.mass * bodyToRepel.mass) / Mathf.Pow(distance, 2);
         Vector3 gravitationalForce = direction.normalized * forceMagnitude * -1;
         bodyToRepel.AddForce(gravitationalForce);
+    }
+
+    /// <summary>
+    /// repel all objects with this script from this object
+    /// </summary>
+    public void RepelAllOfRepelling()
+    {
+        Repelling[] repellings = FindObjectsOfType<Repelling>();
+        foreach (Repelling repelling in repellings)
+        {
+            if (gameObject.name != repelling.name)
+            {
+                Repel(repelling);
+            }
+        }
+    }
+
+    /// <summary>
+    /// repels all particles based on subatomic forces
+    /// </summary>
+    private void repelAll()
+    {
+        //protons repel
+        if (particle == Particle.proton)
+        {
+            foreach(GameObject proton in objectManager.protons)
+            {
+                if(proton.name != gameObject.name)
+                {
+                    Repel(proton.GetComponent<Repelling>());
+                }
+            }
+        }
+
+        //atom repelling logic
+        if (particle == Particle.atom)
+        {
+            int charge = GetComponent<Atom>().charge;
+
+            //electrons repel from negatively charged atoms
+            if (charge < 0)
+            {
+                RepelEachFrom(objectManager.electrons);
+            }
+
+            //atoms of same nonzero charge repel
+            foreach (Atom atom in objectManager.atoms)
+            {
+                if (atom.charge * charge > 0)
+                {
+                    Repel(atom.gameObject.GetComponent<Repelling>());
+                }
+            }
+        }
+
+    }
+    /// <summary>
+    /// Repel all objects in a given list of GameObjects to this object.
+    /// </summary>
+    /// <param name="objsRepelling">The list of objects to repel.</param>
+    private void RepelEachFrom(List<GameObject> objsRepelling)
+    {
+        foreach (GameObject objRepelling in objsRepelling)
+        {
+            Repel(objRepelling.GetComponent<Repelling>());
+        }
     }
 }

@@ -2,52 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attraction : MonoBehaviour
+public class Attraction : Force
 {
-    //rigid bodies of objects with this script attatched
-    public Rigidbody2D rigidBody;
-
-    //the ObjectManager of the current scene
-    private ObjectManager objectManager;
-
-    //the type of particle this object is
-    private Particle particle;
-
-    private void Start()
-    {
-        rigidBody = gameObject.GetComponent<Rigidbody2D>();
-
-        objectManager = FindObjectOfType<ObjectManager>();
-
-        //set Particle based on which List in objectManager it is in
-        if (objectManager.protons.Contains(gameObject))
-        {
-            particle = Particle.proton;
-        }
-        else if (objectManager.neutrons.Contains(gameObject))
-        {
-            particle = Particle.neutron;
-        }
-        else if(objectManager.electrons.Contains(gameObject))
-        {
-            particle = Particle.electron;
-        }
-        else
-        {
-            particle = Particle.atom;
-        }
-    }
-
     private void FixedUpdate()
     {
         //AttractAllOfAttraction();
 
-        List<Attraction> currentAttractions = new List<Attraction>();
-        Attraction[] attractions = GameObject.FindObjectsOfType<Attraction>();
-        foreach (Attraction attraction in attractions)
-        {
-            currentAttractions.Add(attraction);
-        }
+        //if: physics are enabled
+        //if: within max distance.
         AttractAll();
     }
 

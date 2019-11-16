@@ -45,7 +45,7 @@ public class particleSelection : MonoBehaviour
         Vector3 mousePos = Input.mousePosition;
         Vector3 mousePoint = cam.ScreenToWorldPoint(mousePos);
         mousePos.z = 1;
-        currentParticle = objectManager.InstantiateSP(particle, mousePoint);
+        currentParticle = objectManager.InstantiateSubParticle(particle, mousePoint);
         particleInHand = true;
     }
 
