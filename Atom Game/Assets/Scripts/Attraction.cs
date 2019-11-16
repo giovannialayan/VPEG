@@ -25,11 +25,8 @@ public class Attraction : MonoBehaviour
         Vector3 direction = rigidBody.position - bodyToAttract.position;
         float distance = direction.magnitude;
 
-        if (distance > 1)
-        {
-            float forceMagnitude = (rigidBody.mass * bodyToAttract.mass) / Mathf.Pow(distance, 2);
-            Vector3 gravitationalForce = direction.normalized * forceMagnitude;
-            bodyToAttract.AddForce(gravitationalForce);
-        }
+        float forceMagnitude = (rigidBody.mass * bodyToAttract.mass) / Mathf.Pow(distance, 2);
+        Vector3 gravitationalForce = direction.normalized * forceMagnitude;
+        bodyToAttract.AddForce(gravitationalForce);
     }
 }
