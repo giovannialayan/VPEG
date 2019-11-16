@@ -52,7 +52,7 @@ public class Attraction : MonoBehaviour
         float forceMagnitude = (rigidBody.mass * bodyToAttract.mass) / Mathf.Pow(distance, 2);
         Vector3 gravitationalForce = direction.normalized * forceMagnitude;
         bodyToAttract.AddForce(gravitationalForce);
-    }
+    }                                                       
 
     //attract all objects with this script to this object
     private void AttractAllOfAttraction()

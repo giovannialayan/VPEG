@@ -252,6 +252,8 @@ MonoBehaviour:
     type: 3}
   electronPrefab: {fileID: 6046814192068626505, guid: 998b7e60c79b79a4b8b1c2055d411f92,
     type: 3}
+  atomPrefab: {fileID: 0}
   protons: []
   neutrons: []
   electrons: []
+  atoms: []
