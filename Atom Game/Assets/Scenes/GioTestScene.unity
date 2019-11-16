@@ -203,6 +203,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &784829060 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6977871262186496686, guid: 74ab7379481af994f979096deb9fb500,
+    type: 3}
+  m_PrefabInstance: {fileID: 6841180899987695864}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &900302599
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,6 +530,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!212 &1129598043 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7996428622236262734, guid: 74ab7379481af994f979096deb9fb500,
+    type: 3}
+  m_PrefabInstance: {fileID: 6841180899987695864}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1191253081 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5349337041373956067, guid: 74ab7379481af994f979096deb9fb500,
+    type: 3}
+  m_PrefabInstance: {fileID: 6841180899987695864}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1522963785
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,6 +721,11 @@ PrefabInstance:
       propertyPath: atoms.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6841180900513181557, guid: 74ab7379481af994f979096deb9fb500,
+        type: 3}
+      propertyPath: physicsEnabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6841180898849155842, guid: 74ab7379481af994f979096deb9fb500,
         type: 3}
       propertyPath: cam
@@ -763,6 +786,11 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 4234378278047607900, guid: 74ab7379481af994f979096deb9fb500,
+        type: 3}
+      propertyPath: toolbarRenderer
+      value: 
+      objectReference: {fileID: 1129598043}
     - target: {fileID: 4844151768814375302, guid: 74ab7379481af994f979096deb9fb500,
         type: 3}
       propertyPath: m_IsTrigger
@@ -773,6 +801,11 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 1819702565497077059, guid: 74ab7379481af994f979096deb9fb500,
+        type: 3}
+      propertyPath: toolbarRenderer
+      value: 
+      objectReference: {fileID: 784829060}
     - target: {fileID: 7087202823405207188, guid: 74ab7379481af994f979096deb9fb500,
         type: 3}
       propertyPath: m_IsTrigger
@@ -783,5 +816,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 4316758077609536536, guid: 74ab7379481af994f979096deb9fb500,
+        type: 3}
+      propertyPath: toolbarRenderer
+      value: 
+      objectReference: {fileID: 1191253081}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74ab7379481af994f979096deb9fb500, type: 3}
