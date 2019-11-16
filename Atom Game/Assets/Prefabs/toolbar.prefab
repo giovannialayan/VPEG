@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8128486054978643143}
   - component: {fileID: 4234378278047607900}
   m_Layer: 0
-  m_Name: Neutron
+  m_Name: NeutronButton
   m_TagString: neutron
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectManager: {fileID: 6841180900513181557}
+  toolbarRenderer: {fileID: 6841180900513181558}
   cam: {fileID: 0}
 --- !u!1 &4875332106173820858
 GameObject:
@@ -125,7 +126,7 @@ GameObject:
   - component: {fileID: 4844151768814375302}
   - component: {fileID: 1819702565497077059}
   m_Layer: 0
-  m_Name: Proton
+  m_Name: ProtonButton
   m_TagString: proton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,6 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectManager: {fileID: 6841180900513181557}
+  toolbarRenderer: {fileID: 6841180900513181558}
   cam: {fileID: 0}
 --- !u!1 &6841180900513181556
 GameObject:
@@ -345,7 +347,7 @@ GameObject:
   - component: {fileID: 7087202823405207188}
   - component: {fileID: 4316758077609536536}
   m_Layer: 0
-  m_Name: Electron
+  m_Name: ElectronButton
   m_TagString: electron
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -443,4 +445,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectManager: {fileID: 6841180900513181557}
+  toolbarRenderer: {fileID: 6841180900513181558}
   cam: {fileID: 0}
