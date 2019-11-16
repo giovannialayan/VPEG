@@ -35,7 +35,7 @@ public class Repelling : Force
         Repelling[] repellings = FindObjectsOfType<Repelling>();
         foreach (Repelling repelling in repellings)
         {
-            if (gameObject.name != repelling.name)
+            if (gameObject != repelling.gameObject)
             {
                 Repel(repelling);
             }
@@ -52,7 +52,7 @@ public class Repelling : Force
         {
             foreach(GameObject proton in objectManager.protons)
             {
-                if(proton.name != gameObject.name)
+                if(proton.gameObject != gameObject)
                 {
                     Repel(proton.GetComponent<Repelling>());
                 }
