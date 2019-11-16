@@ -77,7 +77,7 @@ public class Repelling : Force
             //atoms of same nonzero charge repel
             foreach (Atom atom in objectManager.atoms)
             {
-                if (atom.charge * charge > 0)
+                if (atom.charge * charge > 0 && gameObject != atom.gameObject)
                 {
                     Repel(atom.gameObject.GetComponent<Repelling>());
                 }

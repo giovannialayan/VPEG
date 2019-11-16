@@ -698,6 +698,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6841180900513181557, guid: 74ab7379481af994f979096deb9fb500,
+        type: 3}
+      propertyPath: atoms.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6841180898849155842, guid: 74ab7379481af994f979096deb9fb500,
         type: 3}
       propertyPath: cam

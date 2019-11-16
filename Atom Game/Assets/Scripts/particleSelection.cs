@@ -15,6 +15,7 @@ public class ParticleSelection : MonoBehaviour
     void Start()
     {
         cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+        objectManager = GameObject.FindObjectOfType<ObjectManager>();
 
         if (gameObject.name == "ProtonButton")
         {
