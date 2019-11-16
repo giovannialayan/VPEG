@@ -11,11 +11,12 @@ GameObject:
   - component: {fileID: 7009462072408308262}
   - component: {fileID: 4453799459174258045}
   - component: {fileID: 5943304797355055050}
+  - component: {fileID: -8422339231937313032}
   - component: {fileID: -561228452469474356}
   - component: {fileID: -7413950953945975948}
-  - component: {fileID: -8422339231937313032}
   - component: {fileID: -2525885299998915942}
   - component: {fileID: 466167369471746412}
+  - component: {fileID: -519300894970536099}
   m_Layer: 0
   m_Name: Atom
   m_TagString: atom
@@ -107,6 +108,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &-8422339231937313032
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6607722571927321493}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.32
 --- !u!114 &-561228452469474356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,22 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 5943304797355055050}
---- !u!58 &-8422339231937313032
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6607722571927321493}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.32
+  circleCollider: {fileID: -8422339231937313032}
 --- !u!114 &-2525885299998915942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 5943304797355055050}
+  circleCollider: {fileID: -8422339231937313032}
 --- !u!114 &466167369471746412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,4 +182,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectManager: {fileID: 6841180900513181557, guid: 74ab7379481af994f979096deb9fb500,
+    type: 3}
+--- !u!114 &-519300894970536099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6607722571927321493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3cce148e5698c040afbbf6b1dc75514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textCanvas: {fileID: 4392624343626452344, guid: 07112e5ee84681e479ba6eb9285be83d,
     type: 3}

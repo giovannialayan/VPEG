@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Repelling : Force
 {
-    private void FixedUpdate()
+    protected override void FixedUpdate()
     {
+        base.FixedUpdate();
+
         if (objectManager.physicsEnabled)
         {
             //RepelAllOfRepelling();

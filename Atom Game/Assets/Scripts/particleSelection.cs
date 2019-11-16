@@ -8,10 +8,9 @@ public class ParticleSelection : MonoBehaviour
     public SpriteRenderer toolbarRenderer;
     public Camera cam;
     private GameObject currentParticle;
+    private CircleCollider2D currentCollider;
     private Particle particle;
     private bool particleInHand = false;
-
-    private bool isStartButton = false;
 
     //set particle to which ever particle object this script is attatched to
     void Start()
@@ -31,10 +30,6 @@ public class ParticleSelection : MonoBehaviour
         {
             particle = Particle.neutron;
         }
-        else if (gameObject.name == "StartButton")
-        {
-            isStartButton = true;
-        }
     }
 
     void Update()
@@ -52,18 +47,15 @@ public class ParticleSelection : MonoBehaviour
     //when the player clicks on the particle in the toolbar instantiate a new object of that type on the cursor
     private void OnMouseDown()
     {
-        if (!isStartButton)
-        {
-            Vector3 mousePos = Input.mousePosition;
-            Vector3 mousePoint = cam.ScreenToWorldPoint(mousePos);
-            mousePos.z = 1;
-            currentParticle = objectManager.InstantiateSubParticle(particle, mousePoint);
-            particleInHand = true;
-        }
-        else
-        {
-            objectManager.physicsEnabled = true;
-        }
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 mousePoint = cam.ScreenToWorldPoint(mousePos);
+        mousePos.z = 1;
+        currentParticle = objectManager.InstantiateSubParticle(particle, mousePoint);
+
+        currentCollider = currentParticle.GetComponent<CircleCollider2D>();
+        currentCollider.enabled = false;
+
+        particleInHand = true;
     }
 
     //when the players stops dragging drop the particle
@@ -72,11 +64,16 @@ public class ParticleSelection : MonoBehaviour
         particleInHand = false;
 
         //If current particle is placed back in the toolbar, destroy it.
-        if (toolbarRenderer.bounds.Contains((Vector2)(currentParticle.transform.position)))
+        if (toolbarRenderer.bounds.Contains((Vector2)currentParticle?.transform.position))
         {
             Destroy(currentParticle);
         }
+        else
+        {
+            currentCollider.enabled = true;
+        }
 
         currentParticle = null;
+        currentCollider = null;
     }
 }

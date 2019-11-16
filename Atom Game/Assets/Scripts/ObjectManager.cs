@@ -38,9 +38,10 @@ public class ObjectManager : MonoBehaviour
         InstantiateSubParticle(Particle.electron, new Vector3(6, 4, 0));
         InstantiateSubParticle(Particle.neutron, new Vector3(-3, -3, 0));
         InstantiateAtom(3, 3, 2, new Vector3(-5, 3, 0));
-        InstantiateAtom(5, 5, 2, new Vector3(-5, 6, 0));
+        InstantiateAtom(5, 5, 2, new Vector3(-5, 0, 0));
         InstantiateAtom(2, 3, 3, new Vector3(0, 3, 0));
         */
+        
     }
 
     private void Update()

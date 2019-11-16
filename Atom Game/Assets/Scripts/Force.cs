@@ -7,11 +7,14 @@ public class Force : MonoBehaviour
     //rigid bodies of objects with this script attatched
     public Rigidbody2D rigidBody;
 
+    //The collider of this object.
+    public CircleCollider2D circleCollider;
+
     //the ObjectManager of the current scene
     protected ObjectManager objectManager;
 
     //the type of particle this object is
-    protected Particle particle;
+    public Particle particle;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +39,15 @@ public class Force : MonoBehaviour
         else
         {
             particle = Particle.atom;
+        }
+    }
+
+    protected virtual void FixedUpdate()
+    {
+        //If the collider is enabled, make the collider a trigger when physics isn't enabled
+        if (circleCollider.enabled)
+        {
+            circleCollider.isTrigger = !objectManager.physicsEnabled;
         }
     }
 }
