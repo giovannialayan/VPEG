@@ -7,10 +7,38 @@ public class Attraction : MonoBehaviour
     //rigid bodies of objects with this script attatched
     public Rigidbody2D rigidBody;
 
+    //the ObjectManager of the current scene
+    private ObjectManager objectManager;
+
+    //the type of particle this object is
+    private Particle particle;
+
+    private void Start()
+    {
+        rigidBody = gameObject.GetComponent<Rigidbody2D>();
+
+        objectManager = FindObjectOfType<ObjectManager>();
+
+        //set Particle based on which List in objectManager it is in
+        if (objectManager.protons.Contains(gameObject))
+        {
+            particle = Particle.proton;
+        }
+        else if (objectManager.neutrons.Contains(gameObject))
+        {
+            particle = Particle.neutron;
+        }
+        else
+        {
+            particle = Particle.electron;
+        }
+    }
+
     private void FixedUpdate()
     {
         //AttractAllOfAttraction();
-        
+
+        AttractAll();
     }
 
     //attract another object to this object using newton's law of gravitation
@@ -27,7 +55,7 @@ public class Attraction : MonoBehaviour
     }
 
     //attract all objects with this script to this object
-    public void AttractAllOfAttraction()
+    private void AttractAllOfAttraction()
     {
         Attraction[] attractions = FindObjectsOfType<Attraction>();
         foreach (Attraction attraction in attractions)
@@ -39,8 +67,27 @@ public class Attraction : MonoBehaviour
         }
     }
 
-    public void AttractProtons()
+    /// <summary>
+    /// attracts all particles based on subatomic forces
+    /// </summary>
+    private void AttractAll()
     {
-
+        //neutrons and protons attract
+        if (particle == Particle.neutron)
+        {
+            AttractEachTo(objectManager.protons);
+        }
+        if(particle == Particle.proton)
+        {
+            AttractEachTo(objectManager.neutrons);
+        }
+    }
+    //attract all objects in objsAttracting to this object
+    private void AttractEachTo(List<GameObject> objsAttracting)
+    {
+        foreach (GameObject objAttracting in objsAttracting)
+        {
+            Attract(objAttracting.GetComponent<Attraction>());
+        }
     }
 }

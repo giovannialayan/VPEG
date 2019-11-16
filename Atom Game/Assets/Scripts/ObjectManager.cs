@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum particle { proton, neutron, electron}
+public enum Particle { proton, neutron, electron}
 
 public class ObjectManager : MonoBehaviour
 {
@@ -23,9 +23,9 @@ public class ObjectManager : MonoBehaviour
         electrons = new List<GameObject>();
 
         //test instantiation (comment me out)
-        InstantiateObject(particle.proton, new Vector3(0, 0, 0));
-        InstantiateObject(particle.electron, new Vector3(3, 3, 0));
-        InstantiateObject(particle.neutron, new Vector3(-3, -3, 0));
+        InstantiateObject(Particle.proton, new Vector3(0, 0, 0));
+        InstantiateObject(Particle.electron, new Vector3(3, 3, 0));
+        InstantiateObject(Particle.neutron, new Vector3(-3, -3, 0));
     }
 
     // Update is called once per frame
@@ -39,18 +39,18 @@ public class ObjectManager : MonoBehaviour
     /// </summary>
     /// <param name="particle">type of particle to instantiate</param>
     /// <param name="position">position in world space to instantiate prefab at</param>
-    public void InstantiateObject(particle particle, Vector3 position)
+    public void InstantiateObject(Particle particle, Vector3 position)
     {
         switch (particle)
         {
-            case particle.proton:
+            case Particle.proton:
                 protons.Add(Instantiate(protonPrefab, position, Quaternion.identity));
                 break;
-            case particle.neutron:
+            case Particle.neutron:
                 neutrons.Add(Instantiate(neutronPrefab, position, Quaternion.identity));
                 break;
-            case particle.electron:
-                neutrons.Add(Instantiate(electronPrefab, position, Quaternion.identity));
+            case Particle.electron:
+                electrons.Add(Instantiate(electronPrefab, position, Quaternion.identity));
                 break;
         }
     }
