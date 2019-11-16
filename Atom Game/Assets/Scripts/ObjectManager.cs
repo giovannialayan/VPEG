@@ -31,6 +31,7 @@ public class ObjectManager : MonoBehaviour
         InstantiateAtom(3, 3, 2, new Vector3(3, 0, 0));
         InstantiateAtom(2, 3, 3, new Vector3(0, 3, 0));
         */
+        
     }
 
     /// <summary>
