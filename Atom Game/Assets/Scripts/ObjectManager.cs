@@ -16,6 +16,11 @@ public class ObjectManager : MonoBehaviour
     public List<GameObject> electrons;
     public List<Atom> atoms;
 
+    /// <summary>
+    /// Can objects attract / repel / etc.?
+    /// </summary>
+    public bool physicsEnabled;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +28,8 @@ public class ObjectManager : MonoBehaviour
         neutrons = new List<GameObject>();
         electrons = new List<GameObject>();
         atoms = new List<Atom>();
+
+        physicsEnabled = false;
 
         /*test instantiation (comment me out pls)
         InstantiateSubParticle(Particle.proton, new Vector3(-2, -2, 0));
@@ -34,14 +41,14 @@ public class ObjectManager : MonoBehaviour
         InstantiateAtom(5, 5, 2, new Vector3(-5, 6, 0));
         InstantiateAtom(2, 3, 3, new Vector3(0, 3, 0));
         */
-        
-        
-        
     }
 
     private void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            physicsEnabled = true;
+        }
     }
 
     /// <summary>

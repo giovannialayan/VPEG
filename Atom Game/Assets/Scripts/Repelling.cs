@@ -6,7 +6,7 @@ public class Repelling : Force
 {
     private void FixedUpdate()
     {
-        if (physicsEnabled)
+        if (objectManager.physicsEnabled)
         {
             //RepelAllOfRepelling();
 
