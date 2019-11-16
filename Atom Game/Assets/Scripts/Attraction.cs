@@ -4,54 +4,13 @@ using UnityEngine;
 
 public class Attraction : Force
 {
-    //rigid bodies of objects with this script attatched
-    public Rigidbody2D rigidBody;
-
-    //Will objects attract and do all that stuff they usually do?
-    public bool physicsEnabled;
-
-    //the ObjectManager of the current scene
-    private ObjectManager objectManager;
-
-    //the type of particle this object is
-    private Particle particle;
-
-    private void Start()
-    {
-        rigidBody = gameObject.GetComponent<Rigidbody2D>();
-
-        objectManager = FindObjectOfType<ObjectManager>();
-
-        physicsEnabled = true;
-
-        //set Particle based on which List in objectManager it is in
-        if (objectManager.protons.Contains(gameObject))
-        {
-            particle = Particle.proton;
-        }
-        else if (objectManager.neutrons.Contains(gameObject))
-        {
-            particle = Particle.neutron;
-        }
-        else if(objectManager.electrons.Contains(gameObject))
-        {
-            particle = Particle.electron;
-        }
-        else
-        {
-            particle = Particle.atom;
-        }
-    }
-
     private void FixedUpdate()
     {
         //AttractAllOfAttraction();
 
+        //if: physics are enabled
         //if: within max distance.
-        if (physicsEnabled)
-        {
-            AttractAll();
-        }
+        AttractAll();
     }
 
     /// <summary>
