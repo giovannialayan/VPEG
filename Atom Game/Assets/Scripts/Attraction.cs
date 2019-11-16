@@ -8,7 +8,7 @@ public class Attraction : Force
     {
         //AttractAllOfAttraction();
 
-        //if: is playing.
+        //if: physics are enabled
         //if: within max distance.
         AttractAll();
     }
