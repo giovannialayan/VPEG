@@ -6,11 +6,12 @@ public class Attraction : Force
 {
     private void FixedUpdate()
     {
-        //AttractAllOfAttraction();
+        if (physicsEnabled)
+        {
+            //AttractAllOfAttraction();
 
-        //if: physics are enabled
-        //if: within max distance.
-        AttractAll();
+            AttractAll();
+        }
     }
 
     /// <summary>
@@ -19,6 +20,7 @@ public class Attraction : Force
     /// <param name="objAttracting">The object to attract.</param>
     private void Attract(Attraction objAttracting)
     {
+        //If within max distance?
         Rigidbody2D bodyToAttract = objAttracting.rigidBody;
 
         Vector3 direction = rigidBody.position - bodyToAttract.position;

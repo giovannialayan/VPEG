@@ -6,9 +6,12 @@ public class Repelling : Force
 {
     private void FixedUpdate()
     {
-        //RepelAllOfRepelling();
+        if (physicsEnabled)
+        {
+            //RepelAllOfRepelling();
 
-        RepelAll();
+            RepelAll();
+        }
     }
 
     /// <summary>
@@ -17,6 +20,7 @@ public class Repelling : Force
     /// <param name="objRepelling">The object to repel.</param>
     private void Repel(Repelling objRepelling)
     {
+        //If within max distance?
         Rigidbody2D bodyToRepel = objRepelling.rigidBody;
 
         Vector3 direction = rigidBody.position - bodyToRepel.position;
