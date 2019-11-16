@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Repelling : MonoBehaviour
+public class Repelling : Force
 {
-    //rigid bodies of objects with this script attatched
-    public Rigidbody2D rigidBody;
-
     private void FixedUpdate()
     {
         //repel all objects with this script from this object
