@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ParticleSelection : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class ParticleSelection : MonoBehaviour
     private Particle particle;
     private bool particleInHand = false;
     private bool isStartButton = false;
+    private bool isResetButton = false;
 
     //set particle to which ever particle object this script is attatched to
     void Start()
@@ -35,6 +37,10 @@ public class ParticleSelection : MonoBehaviour
         {
             isStartButton = true;
         }
+        else if (gameObject.name == "ResetButton")
+        {
+            isResetButton = true;
+        }
     }
 
     void Update()
@@ -52,7 +58,11 @@ public class ParticleSelection : MonoBehaviour
     //when the player clicks on the particle in the toolbar instantiate a new object of that type on the cursor
     private void OnMouseDown()
     {
-        if (!isStartButton)
+        if (isResetButton)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        else if (!isStartButton)
         {
             Vector3 mousePos = Input.mousePosition;
             Vector3 mousePoint = cam.ScreenToWorldPoint(mousePos);

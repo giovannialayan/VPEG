@@ -104,7 +104,7 @@ public class ParticleTransformation : MonoBehaviour
             Atom atom1 = gameObject.GetComponent<Atom>();
             Atom atom2 = collider.gameObject.GetComponent<Atom>();
 
-            if (!objectManager.justAtomAtomCollided)
+            if (objectManager.justAtomAtomCollided==0)
             {
                 //create new atom
                 objectManager.InstantiateAtom(
@@ -123,7 +123,7 @@ public class ParticleTransformation : MonoBehaviour
                 Destroy(atom1.gameObject);
                 Destroy(atom2.gameObject);
 
-                objectManager.justAtomAtomCollided = true;
+                objectManager.justAtomAtomCollided = 3;
             }
             else
             {
@@ -159,6 +159,10 @@ public class ParticleTransformation : MonoBehaviour
             //destroy electron
             Destroy(collider.gameObject);
         }
+                objectManager.justAtomAtomCollided --;
+            }
+        }
+    }
         //atom collides with proton change charge of atom
         else if (isAtom && collType == "proton")
         {
