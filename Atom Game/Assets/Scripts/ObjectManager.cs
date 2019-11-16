@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public enum Particle { proton, neutron, electron, atom }
@@ -22,7 +23,7 @@ public class ObjectManager : MonoBehaviour
     public bool physicsEnabled;
 
     //loophole for atom collision bug
-    public bool justAtomAtomCollided = false;
+    public int justAtomAtomCollided = 0;
 
     // Start is called before the first frame update
     void Start()
