@@ -9,7 +9,7 @@ public class Repelling : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //attract all objects with this script to this object
+        //repel all objects with this script from this object
         Repelling[] repels = FindObjectsOfType<Repelling>();
         foreach (Repelling repelling in repels)
         {
@@ -20,7 +20,10 @@ public class Repelling : MonoBehaviour
         }
     }
 
-    //attract another object to this object using newton's law of gravitation
+    /// <summary>
+    /// repel another object from this object using newton's law of gravitation
+    /// </summary>
+    /// <param name="objRepelling">The object to repel.</param>
     private void Repel(Repelling objRepelling)
     {
         Rigidbody2D bodyToRepel = objRepelling.rigidBody;

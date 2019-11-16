@@ -41,7 +41,10 @@ public class Attraction : MonoBehaviour
         AttractAll();
     }
 
-    //attract another object to this object using newton's law of gravitation
+    /// <summary>
+    /// attract another object to this object using newton's law of gravitation
+    /// </summary>
+    /// <param name="objAttracting">The object to attract.</param>
     private void Attract(Attraction objAttracting)
     {
         Rigidbody2D bodyToAttract = objAttracting.rigidBody;
@@ -52,9 +55,11 @@ public class Attraction : MonoBehaviour
         float forceMagnitude = (rigidBody.mass * bodyToAttract.mass) / Mathf.Pow(distance, 2);
         Vector3 gravitationalForce = direction.normalized * forceMagnitude;
         bodyToAttract.AddForce(gravitationalForce);
-    }                                                       
+    }
 
-    //attract all objects with this script to this object
+    /// <summary>
+    /// attract all objects with this script to this object
+    /// </summary>
     private void AttractAllOfAttraction()
     {
         Attraction[] attractions = FindObjectsOfType<Attraction>();
@@ -82,7 +87,10 @@ public class Attraction : MonoBehaviour
             AttractEachTo(objectManager.neutrons);
         }
     }
-    //attract all objects in objsAttracting to this object
+    /// <summary>
+    /// Attract all objects in a given list of GameObjects to this object.
+    /// </summary>
+    /// <param name="objsAttracting">The list of objects to attract.</param>
     private void AttractEachTo(List<GameObject> objsAttracting)
     {
         foreach (GameObject objAttracting in objsAttracting)
