@@ -10,6 +10,7 @@ public class ParticleTransformation : MonoBehaviour
     private bool isNeutron = false;
     private bool isElectron = false;
     private bool isNucleus = false;
+    private bool isAtom = false;
 
     private Particle particle;
 
@@ -32,6 +33,10 @@ public class ParticleTransformation : MonoBehaviour
         else if(gameObject.tag == "nucleus")
         {
             isNucleus = true;
+        }
+        else if(gameObject.tag == "atom")
+        {
+            isAtom = true;
         }
 
         particle = gameObject.GetComponent<Force>().particle;
@@ -86,7 +91,6 @@ public class ParticleTransformation : MonoBehaviour
             Destroy(gameObject);
             Destroy(collider.gameObject);
         }
-
         //combine atoms if they collide
         else if(particle == Particle.atom && collParticle == Particle.atom)
         {
@@ -113,7 +117,20 @@ public class ParticleTransformation : MonoBehaviour
                 Destroy(atom2.gameObject);
             }
         }
+        //atom collides with electron change charge of atom
+        else if(isAtom && collType == "electron")
+        {
+            //change atom's values
+            Atom atom = gameObject.GetComponent<Atom>();
+            atom.charge--;
+            atom.electrons++;
 
+            //remove electron from object manager's list
+            int indexToRemove = objectManager.electrons.IndexOf(collider.gameObject);
+            objectManager.electrons.RemoveAt(indexToRemove);
 
+            //destroy electron
+            Destroy(collider.gameObject);
+        }
     }
 }
