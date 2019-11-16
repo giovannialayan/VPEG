@@ -25,12 +25,14 @@ public class ObjectManager : MonoBehaviour
         atoms = new List<Atom>();
 
         /*test instantiation (comment me out pls)
-        InstantiateSP(Particle.proton, new Vector3(0, 0, 0));
-        InstantiateSP(Particle.electron, new Vector3(3, 3, 0));
-        InstantiateSP(Particle.neutron, new Vector3(-3, -3, 0));
+        InstantiateSubParticle(Particle.proton, new Vector3(-2, 0, 0));
+        InstantiateSubParticle()
+        InstantiateSubParticle(Particle.electron, new Vector3(3, 3, 0));
+        InstantiateSubParticle(Particle.neutron, new Vector3(-3, -3, 0));
         InstantiateAtom(3, 3, 2, new Vector3(3, 0, 0));
         InstantiateAtom(2, 3, 3, new Vector3(0, 3, 0));
         */
+        
         
     }
 
@@ -39,7 +41,7 @@ public class ObjectManager : MonoBehaviour
     /// </summary>
     /// <param name="particle">Particle to instantiate (sub particle)</param>
     /// <param name="position">position in world space to instantiate prefab at</param>
-    public GameObject InstantiateSP(Particle particle, Vector3 position)
+    public GameObject InstantiateSubParticle(Particle particle, Vector3 position)
     {
         switch (particle)
         {
