@@ -16,6 +16,9 @@ public class Force : MonoBehaviour
     //the type of particle this object is
     public Particle particle;
 
+    //the scale of the force applied to all attration and repelling
+    public float forceCoefficient = 3;
+
     // Start is called before the first frame update
     void Start()
     {
