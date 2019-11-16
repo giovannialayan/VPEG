@@ -11,6 +11,8 @@ public class ParticleTransformation : MonoBehaviour
     private bool isElectron = false;
     private bool isNucleus = false;
 
+    private Particle particle;
+
     private void Start()
     {
         objectManager = GameObject.FindObjectOfType<ObjectManager>();
@@ -31,11 +33,15 @@ public class ParticleTransformation : MonoBehaviour
         {
             isNucleus = true;
         }
+
+        particle = gameObject.GetComponent<Force>().particle;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         string collType = collision.gameObject.tag;
+
+        Particle collParticle = collision.gameObject.GetComponent<Force>().particle;
 
         //create a nucleus if a proton and neutron collide
         if (isProton && collType == "neutron")
@@ -71,5 +77,28 @@ public class ParticleTransformation : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
+        //combine atoms if they collide
+        else if(particle == Particle.atom && collParticle == Particle.atom)
+        {
+            Atom atom1 = gameObject.GetComponent<Atom>();
+            Atom atom2 = gameObject.GetComponent<Atom>();
+
+            //create new atom
+            objectManager.InstantiateAtom(
+                atom1.protons + atom2.protons, 
+                atom1.neutrons + atom2.neutrons, 
+                atom1.electrons + atom2.electrons, 
+                gameObject.transform.position);
+
+            //remove atoms from object manager
+            int indexToRemove = objectManager.atoms.IndexOf(atom1);
+            objectManager.atoms.RemoveAt(indexToRemove);
+            indexToRemove = objectManager.atoms.IndexOf(atom2);
+            objectManager.atoms.RemoveAt(indexToRemove);
+
+            //destroy og atoms
+            Destroy(atom1.gameObject);
+            Destroy(atom2.gameObject);
+        }
     }
 }

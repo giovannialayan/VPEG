@@ -11,7 +11,7 @@ public class Force : MonoBehaviour
     protected ObjectManager objectManager;
 
     //the type of particle this object is
-    protected Particle particle;
+    public Particle particle;
 
     // Start is called before the first frame update
     void Start()
