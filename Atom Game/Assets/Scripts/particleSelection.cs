@@ -16,15 +16,15 @@ public class particleSelection : MonoBehaviour
     {
         cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
 
-        if (gameObject.tag == "proton")
+        if (gameObject.name == "Proton")
         {
             particle = Particle.proton;
         }
-        else if (gameObject.tag == "electron")
+        else if (gameObject.name == "Electron")
         {
             particle = Particle.electron;
         }
-        else if (gameObject.tag == "neutron")
+        else if (gameObject.name == "Neutron")
         {
             particle = Particle.neutron;
         }
@@ -48,7 +48,7 @@ public class particleSelection : MonoBehaviour
         Vector3 mousePos = Input.mousePosition;
         Vector3 mousePoint = cam.ScreenToWorldPoint(mousePos);
         mousePos.z = 1;
-        currentParticle = objectManager.InstantiateSP(particle, mousePoint);
+        currentParticle = objectManager.InstantiateSubParticle(particle, mousePoint);
         particleInHand = true;
     }
 

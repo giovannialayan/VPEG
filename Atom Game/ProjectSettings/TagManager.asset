@@ -7,6 +7,8 @@ TagManager:
   - proton
   - neutron
   - electron
+  - nucleus
+  - atom
   layers:
   - Default
   - TransparentFX
