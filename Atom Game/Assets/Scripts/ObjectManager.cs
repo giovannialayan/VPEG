@@ -31,7 +31,7 @@ public class ObjectManager : MonoBehaviour
 
         physicsEnabled = true;
 
-        /*test instantiation (comment me out pls)*/
+        /*test instantiation (comment me out pls)
         InstantiateSubParticle(Particle.proton, new Vector3(-2, -2, 0));
         InstantiateSubParticle(Particle.proton, new Vector3(2, 2, 0));
         InstantiateSubParticle(Particle.electron, new Vector3(4, 3, 0));
@@ -40,6 +40,7 @@ public class ObjectManager : MonoBehaviour
         InstantiateAtom(3, 3, 2, new Vector3(-5, 3, 0));
         InstantiateAtom(5, 5, 2, new Vector3(-5, 0, 0));
         InstantiateAtom(2, 3, 3, new Vector3(0, 3, 0));
+        */
         
     }
 
