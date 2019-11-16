@@ -8,7 +8,7 @@ public class Repelling : Force
     {
         //RepelAllOfRepelling();
 
-
+        RepelAll();
     }
 
     /// <summary>
@@ -45,7 +45,7 @@ public class Repelling : Force
     /// <summary>
     /// repels all particles based on subatomic forces
     /// </summary>
-    private void repelAll()
+    private void RepelAll()
     {
         //protons repel
         if (particle == Particle.proton)
