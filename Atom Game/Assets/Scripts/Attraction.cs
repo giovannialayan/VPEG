@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Attraction : Force
 {
-    private void FixedUpdate()
+    protected override void FixedUpdate()
     {
+        base.FixedUpdate();
+
         if (objectManager.physicsEnabled)
         {
             //AttractAllOfAttraction();
