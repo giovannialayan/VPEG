@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public enum Particle { proton, neutron, electron, atom }
@@ -26,30 +25,38 @@ public class ObjectManager : MonoBehaviour
         atoms = new List<Atom>();
 
         //test instantiation (comment me out pls)
-        InstantiateSP(Particle.proton, new Vector3(0, 0, 0)); 
-        InstantiateSP(Particle.electron, new Vector3(3, 3, 0));
-        InstantiateSP(Particle.neutron, new Vector3(-3, -3, 0));
-        InstantiateAtom(3, 3, 3, new Vector3(3, 0, 0));
-    } 
+        //InstantiateSP(Particle.proton, new Vector3(0, 0, 0));
+        //InstantiateSP(Particle.electron, new Vector3(3, 3, 0));
+        //InstantiateSP(Particle.neutron, new Vector3(-3, -3, 0));
+        //InstantiateAtom(3, 3, 3, new Vector3(3, 0, 0));
+    }
 
     /// <summary>
     /// instantiates a sub particle
     /// </summary>
     /// <param name="particle">Particle to instantiate (sub particle)</param>
     /// <param name="position">position in world space to instantiate prefab at</param>
-    public void InstantiateSP(Particle particle, Vector3 position)
+    public GameObject InstantiateSP(Particle particle, Vector3 position)
     {
         switch (particle)
         {
             case Particle.proton:
-                protons.Add(Instantiate(protonPrefab, position, Quaternion.identity));
-                break;
+                GameObject newProton = Instantiate(protonPrefab, position, Quaternion.identity);
+                protons.Add(newProton);
+                return newProton;
+
             case Particle.neutron:
-                neutrons.Add(Instantiate(neutronPrefab, position, Quaternion.identity));
-                break;
+                GameObject newNeutron = Instantiate(neutronPrefab, position, Quaternion.identity);
+                neutrons.Add(newNeutron);
+                return newNeutron;
+
             case Particle.electron:
-                electrons.Add(Instantiate(electronPrefab, position, Quaternion.identity));
-                break;
+                GameObject newElectron = Instantiate(electronPrefab, position, Quaternion.identity);
+                electrons.Add(newElectron);
+                return newElectron;
+
+            default:
+                return new GameObject();
         }
     }
 
