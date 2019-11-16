@@ -16,15 +16,15 @@ public class particleSelection : MonoBehaviour
     {
         cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
 
-        if (gameObject.name == "Proton")
+        if (gameObject.name == "ProtonButton")
         {
             particle = Particle.proton;
         }
-        else if (gameObject.name == "Electron")
+        else if (gameObject.name == "ElectronButton")
         {
             particle = Particle.electron;
         }
-        else if (gameObject.name == "Neutron")
+        else if (gameObject.name == "NeutronButton")
         {
             particle = Particle.neutron;
         }
