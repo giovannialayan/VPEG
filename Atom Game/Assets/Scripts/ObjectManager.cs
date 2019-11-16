@@ -21,6 +21,9 @@ public class ObjectManager : MonoBehaviour
     /// </summary>
     public bool physicsEnabled;
 
+    //loophole for atom collision bug
+    public bool justAtomAtomCollided = false;
+
     // Start is called before the first frame update
     void Start()
     {
