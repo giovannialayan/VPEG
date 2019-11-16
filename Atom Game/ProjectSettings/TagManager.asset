@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - proton
+  - neutron
+  - electron
   layers:
   - Default
   - TransparentFX
@@ -40,4 +43,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: toolbar
+    uniqueID: 4091328857
+    locked: 0
+  - name: particles
+    uniqueID: 840837289
     locked: 0
