@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class particleSelection : MonoBehaviour
+public class ParticleSelection : MonoBehaviour
 {
     public ObjectManager objectManager;
     public SpriteRenderer toolbarRenderer;
