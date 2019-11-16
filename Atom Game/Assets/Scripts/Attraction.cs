@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attraction : MonoBehaviour
+public class Attraction : Force
 {
     //rigid bodies of objects with this script attatched
     public Rigidbody2D rigidBody;
@@ -47,7 +47,6 @@ public class Attraction : MonoBehaviour
     {
         //AttractAllOfAttraction();
 
-        //if: is playing.
         //if: within max distance.
         if (physicsEnabled)
         {
