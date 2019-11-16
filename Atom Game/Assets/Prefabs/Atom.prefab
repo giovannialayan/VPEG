@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5943304797355055050}
   - component: {fileID: -561228452469474356}
   - component: {fileID: -7413950953945975948}
-  - component: {fileID: -7257164498027529319}
   m_Layer: 0
   m_Name: Atom
   m_TagString: Untagged
@@ -135,19 +134,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 5943304797355055050}
---- !u!58 &-7257164498027529319
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6607722571927321493}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.32

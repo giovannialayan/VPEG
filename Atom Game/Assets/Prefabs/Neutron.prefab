@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 9128736185607629191}
   - component: {fileID: 4771067563927958475}
   - component: {fileID: -7213340234659041144}
-  - component: {fileID: -7285997261052053921}
   m_Layer: 0
   m_Name: Neutron
   m_TagString: Untagged
@@ -117,19 +116,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 4771067563927958475}
---- !u!58 &-7285997261052053921
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1652426149772682495}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.32
