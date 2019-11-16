@@ -25,7 +25,7 @@ public class Force : MonoBehaviour
 
         objectManager = FindObjectOfType<ObjectManager>();
 
-        physicsEnabled = true;
+        physicsEnabled = false;
 
         //set Particle based on which List in objectManager it is in
         if (objectManager.protons.Contains(gameObject))
@@ -46,7 +46,7 @@ public class Force : MonoBehaviour
         }
     }
 
-    public void DisableForce() { physicsEnabled = false; }
+    public void DisablePhysics() { physicsEnabled = false; }
 
-    public void EnableForce() { physicsEnabled = true; }
+    public void EnablePhysics() { physicsEnabled = true; }
 }
