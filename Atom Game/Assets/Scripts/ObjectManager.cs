@@ -29,7 +29,7 @@ public class ObjectManager : MonoBehaviour
         electrons = new List<GameObject>();
         atoms = new List<Atom>();
 
-        physicsEnabled = true;
+        physicsEnabled = false;
 
         /*test instantiation (comment me out pls)
         InstantiateSubParticle(Particle.proton, new Vector3(-2, -2, 0));
