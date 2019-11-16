@@ -56,7 +56,14 @@ public class ParticleTransformation : MonoBehaviour
     {
         string collType = collider.gameObject.tag;
 
-        Particle collParticle = collider.gameObject.GetComponent<Force>().particle;
+        Force collForce = collider?.gameObject?.GetComponent<Force>();
+
+        if (collForce == null)
+        {
+            return;
+        }
+
+        Particle collParticle = collForce.particle;
 
         //create a nucleus if a proton and neutron collide
         if (isProton && collType == "neutron")
