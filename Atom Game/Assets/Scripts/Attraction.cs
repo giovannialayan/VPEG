@@ -8,6 +8,8 @@ public class Attraction : Force
     {
         //AttractAllOfAttraction();
 
+        //if: is playing.
+        //if: within max distance.
         AttractAll();
     }
 
