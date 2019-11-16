@@ -6,7 +6,7 @@ public class Attraction : Force
 {
     private void FixedUpdate()
     {
-        if (physicsEnabled)
+        if (objectManager.physicsEnabled)
         {
             //AttractAllOfAttraction();
 
