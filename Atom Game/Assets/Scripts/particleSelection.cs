@@ -5,23 +5,26 @@ using UnityEngine;
 public class particleSelection : MonoBehaviour
 {
     public ObjectManager objectManager;
-    private Particle particle;
+    public SpriteRenderer toolbarRenderer;
     public Camera cam;
-    private bool particleInHand = false;
     private GameObject currentParticle;
+    private Particle particle;
+    private bool particleInHand = false;
 
     //set particle to which ever particle object this script is attatched to
     void Start()
     {
-        if (gameObject.tag == "proton")
+        cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+
+        if (gameObject.name == "ProtonButton")
         {
             particle = Particle.proton;
         }
-        else if (gameObject.tag == "electron")
+        else if (gameObject.name == "ElectronButton")
         {
             particle = Particle.electron;
         }
-        else if (gameObject.tag == "neutron")
+        else if (gameObject.name == "NeutronButton")
         {
             particle = Particle.neutron;
         }
@@ -53,6 +56,13 @@ public class particleSelection : MonoBehaviour
     private void OnMouseUp()
     {
         particleInHand = false;
+
+        //If current particle is placed back in the toolbar, destroy it.
+        if (toolbarRenderer.bounds.Contains((Vector2)(currentParticle.transform.position)))
+        {
+            Destroy(currentParticle);
+        }
+
         currentParticle = null;
     }
 }
