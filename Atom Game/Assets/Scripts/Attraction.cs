@@ -86,6 +86,28 @@ public class Attraction : MonoBehaviour
         {
             AttractEachTo(objectManager.neutrons);
         }
+
+        //atom attraction logic
+        if(particle == Particle.atom)
+        {
+            int charge = GetComponent<Atom>().charge;
+
+            //electrons are attracted to positively charged atoms
+            if (charge > 0)
+            {
+                AttractEachTo(objectManager.electrons);
+            }
+
+            //atoms of opposite charge attract
+            foreach(Atom atom in objectManager.atoms)
+            {
+                if(atom.charge * charge < 0)
+                {
+                    Attract(atom.gameObject.GetComponent<Attraction>());
+                }
+            }
+        }
+
     }
     /// <summary>
     /// Attract all objects in a given list of GameObjects to this object.
