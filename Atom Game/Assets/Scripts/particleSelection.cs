@@ -11,6 +11,8 @@ public class ParticleSelection : MonoBehaviour
     private Particle particle;
     private bool particleInHand = false;
 
+    private bool isStartButton = false;
+
     //set particle to which ever particle object this script is attatched to
     void Start()
     {
@@ -29,6 +31,10 @@ public class ParticleSelection : MonoBehaviour
         {
             particle = Particle.neutron;
         }
+        else if (gameObject.name == "StartButton")
+        {
+            isStartButton = true;
+        }
     }
 
     void Update()
@@ -46,11 +52,18 @@ public class ParticleSelection : MonoBehaviour
     //when the player clicks on the particle in the toolbar instantiate a new object of that type on the cursor
     private void OnMouseDown()
     {
-        Vector3 mousePos = Input.mousePosition;
-        Vector3 mousePoint = cam.ScreenToWorldPoint(mousePos);
-        mousePos.z = 1;
-        currentParticle = objectManager.InstantiateSubParticle(particle, mousePoint);
-        particleInHand = true;
+        if (!isStartButton)
+        {
+            Vector3 mousePos = Input.mousePosition;
+            Vector3 mousePoint = cam.ScreenToWorldPoint(mousePos);
+            mousePos.z = 1;
+            currentParticle = objectManager.InstantiateSubParticle(particle, mousePoint);
+            particleInHand = true;
+        }
+        else
+        {
+            objectManager.physicsEnabled = true;
+        }
     }
 
     //when the players stops dragging drop the particle
