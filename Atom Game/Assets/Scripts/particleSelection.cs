@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class particleSelection : MonoBehaviour
+public class ParticleSelection : MonoBehaviour
 {
     public ObjectManager objectManager;
     public SpriteRenderer toolbarRenderer;
@@ -15,6 +15,7 @@ public class particleSelection : MonoBehaviour
     void Start()
     {
         cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+        objectManager = GameObject.FindObjectOfType<ObjectManager>();
 
         if (gameObject.name == "ProtonButton")
         {

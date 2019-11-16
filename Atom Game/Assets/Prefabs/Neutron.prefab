@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -7213340234659041144}
   - component: {fileID: 8969373716770114755}
   - component: {fileID: 260007083626016070}
+  - component: {fileID: 6352745126425125886}
   m_Layer: 0
   m_Name: Neutron
   m_TagString: neutron
@@ -147,3 +148,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 4771067563927958475}
+--- !u!114 &6352745126425125886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652426149772682495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94b85ccdf2ef27e4fbd5c7c16f0a4fbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectManager: {fileID: 6841180900513181557, guid: 74ab7379481af994f979096deb9fb500,
+    type: 3}

@@ -15,10 +15,10 @@ GameObject:
   - component: {fileID: -7413950953945975948}
   - component: {fileID: -8422339231937313032}
   - component: {fileID: -2525885299998915942}
-  - component: {fileID: -4273955488775409788}
+  - component: {fileID: 466167369471746412}
   m_Layer: 0
   m_Name: Atom
-  m_TagString: Untagged
+  m_TagString: atom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 5943304797355055050}
---- !u!114 &-4273955488775409788
+--- !u!114 &466167369471746412
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,7 +175,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6607722571927321493}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3cce148e5698c040afbbf6b1dc75514, type: 3}
+  m_Script: {fileID: 11500000, guid: 94b85ccdf2ef27e4fbd5c7c16f0a4fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  font: {fileID: 12800000, guid: db509d841c7217b408668485bc0969b4, type: 3}
+  objectManager: {fileID: 6841180900513181557, guid: 74ab7379481af994f979096deb9fb500,
+    type: 3}
