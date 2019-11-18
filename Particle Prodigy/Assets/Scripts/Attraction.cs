@@ -93,7 +93,11 @@ public class Attraction : Force
     {
         foreach (GameObject objAttracting in objsAttracting)
         {
-            Attract(objAttracting?.GetComponent<Attraction>());
+            //Note: Using objAttracting == null doesn't work because of weird unity override voodoo.
+            if (objAttracting)
+            {
+                Attract(objAttracting.GetComponent<Attraction>());
+            }
         }
     }
 }

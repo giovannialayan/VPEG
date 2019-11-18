@@ -83,19 +83,22 @@ public class ParticleSelection : MonoBehaviour
     //when the players stops dragging drop the particle
     private void OnMouseUp()
     {
-        particleInHand = false;
-
-        //If current particle is placed back in the toolbar, destroy it.
-        if (toolbarRenderer.bounds.Contains((Vector2)currentParticle?.transform.position))
+        if (!isResetButton && !isStartButton)
         {
-            Destroy(currentParticle);
-        }
-        else
-        {
-            currentCollider.enabled = true;
-        }
+            particleInHand = false;
 
-        currentParticle = null;
-        currentCollider = null;
+            //If current particle is placed back in the toolbar, destroy it.
+            if (toolbarRenderer.bounds.Contains((Vector2)currentParticle?.transform.position))
+            {
+                Destroy(currentParticle);
+            }
+            else
+            {
+                currentCollider.enabled = true;
+            }
+
+            currentParticle = null;
+            currentCollider = null;
+        }
     }
 }
