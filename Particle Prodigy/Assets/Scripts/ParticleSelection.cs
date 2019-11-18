@@ -90,8 +90,8 @@ public class ParticleSelection : MonoBehaviour
             //If current particle is placed back in the toolbar, destroy it.
             if (toolbarRenderer.bounds.Contains((Vector2)currentParticle?.transform.position))
             {
-                Destroy(currentParticle);
-                //objectManager.DestroyParticle(currentParticle);
+                //Destroy(currentParticle);
+                objectManager.DestroyParticle(currentParticle);
             }
             else
             {

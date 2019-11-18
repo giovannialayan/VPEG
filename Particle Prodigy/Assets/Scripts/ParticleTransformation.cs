@@ -72,15 +72,18 @@ public class ParticleTransformation : MonoBehaviour
             GameObject newNucleus = objectManager.InstantiateAtom(1, 1, 0, gameObject.transform.position);
             newNucleus.tag = "nucleus";
 
-            //remove proton and neutron from object mananger's lists
-            int indexToRemove = objectManager.protons.IndexOf(gameObject);
-            objectManager.protons.RemoveAt(indexToRemove);
-            indexToRemove = objectManager.neutrons.IndexOf(collider.gameObject);
-            objectManager.neutrons.RemoveAt(indexToRemove);
+            ////remove proton and neutron from object mananger's lists
+            //int indexToRemove = objectManager.protons.IndexOf(gameObject);
+            //objectManager.protons.RemoveAt(indexToRemove);
+            //indexToRemove = objectManager.neutrons.IndexOf(collider.gameObject);
+            //objectManager.neutrons.RemoveAt(indexToRemove);
 
-            //destroy proton and neutron
-            Destroy(collider.gameObject);
-            Destroy(gameObject);
+            ////destroy proton and neutron
+            //Destroy(collider.gameObject);
+            //Destroy(gameObject);
+
+            objectManager.DestroyParticle(collider.gameObject);
+            objectManager.DestroyParticle(gameObject);
         }
         //create an atom if a nucleus and an electron collide
         else if (isNucleus && collType == "electron")
@@ -88,15 +91,18 @@ public class ParticleTransformation : MonoBehaviour
             //create new atom
             objectManager.InstantiateAtom(1, 1, 1, gameObject.transform.position);
 
-            //remove nucleus and electron from object manager's lists
-            int indexToRemove = objectManager.atoms.IndexOf(gameObject.GetComponent<Atom>());
-            objectManager.atoms.RemoveAt(indexToRemove);
-            indexToRemove = objectManager.electrons.IndexOf(collider.gameObject);
-            objectManager.electrons.RemoveAt(indexToRemove);
+            ////remove nucleus and electron from object manager's lists
+            //int indexToRemove = objectManager.atoms.IndexOf(gameObject.GetComponent<Atom>());
+            //objectManager.atoms.RemoveAt(indexToRemove);
+            //indexToRemove = objectManager.electrons.IndexOf(collider.gameObject);
+            //objectManager.electrons.RemoveAt(indexToRemove);
 
-            //destroy nucleus and electron
-            Destroy(gameObject);
-            Destroy(collider.gameObject);
+            ////destroy nucleus and electron
+            //Destroy(gameObject);
+            //Destroy(collider.gameObject);
+
+            objectManager.DestroyParticle(gameObject);
+            objectManager.DestroyParticle(collider.gameObject);
         }
         //combine atoms if they collide
         else if(particle == Particle.atom && collParticle == Particle.atom)
@@ -123,6 +129,7 @@ public class ParticleTransformation : MonoBehaviour
                 Destroy(atom1.gameObject);
                 Destroy(atom2.gameObject);
 
+                //hack to prevent crashing
                 objectManager.justAtomAtomCollided = 3;
             }
             else
@@ -138,12 +145,13 @@ public class ParticleTransformation : MonoBehaviour
             atom.charge--;
             atom.electrons++;
 
-            //remove electron from object manager's list
-            int indexToRemove = objectManager.electrons.IndexOf(collider.gameObject);
-            objectManager.electrons.RemoveAt(indexToRemove);
+            ////remove electron from object manager's list
+            //int indexToRemove = objectManager.electrons.IndexOf(collider.gameObject);
+            //objectManager.electrons.RemoveAt(indexToRemove);
 
             //destroy electron
-            Destroy(collider.gameObject);
+            //Destroy(collider.gameObject);
+            objectManager.DestroyParticle(collider.gameObject);
         }
         //atom collides with neutron change neutron count
         else if (isAtom && collType == "neutron")
@@ -152,12 +160,13 @@ public class ParticleTransformation : MonoBehaviour
             Atom atom = gameObject.GetComponent<Atom>();
             atom.neutrons++;
 
-            //remove neutron from object manager's list
-            int indexToRemove = objectManager.neutrons.IndexOf(collider.gameObject);
-            objectManager.neutrons.RemoveAt(indexToRemove);
+            ////remove neutron from object manager's list
+            //int indexToRemove = objectManager.neutrons.IndexOf(collider.gameObject);
+            //objectManager.neutrons.RemoveAt(indexToRemove);
 
             //destroy electron
-            Destroy(collider.gameObject);
+            //Destroy(collider.gameObject);
+            objectManager.DestroyParticle(collider.gameObject);
         }
         //atom collides with proton change charge of atom
         else if (isAtom && collType == "proton")
@@ -167,12 +176,13 @@ public class ParticleTransformation : MonoBehaviour
             atom.protons++;
             atom.charge++;
 
-            //remove neutron from object manager's list
-            int indexToRemove = objectManager.protons.IndexOf(collider.gameObject);
-            objectManager.protons.RemoveAt(indexToRemove);
+            ////remove neutron from object manager's list
+            //int indexToRemove = objectManager.protons.IndexOf(collider.gameObject);
+            //objectManager.protons.RemoveAt(indexToRemove);
 
             //destroy electron
-            Destroy(collider.gameObject);
+            //Destroy(collider.gameObject);
+            objectManager.DestroyParticle(collider.gameObject);
         }
     }
 }
