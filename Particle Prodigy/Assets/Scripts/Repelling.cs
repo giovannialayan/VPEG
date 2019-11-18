@@ -95,7 +95,11 @@ public class Repelling : Force
     {
         foreach (GameObject objRepelling in objsRepelling)
         {
-            Repel(objRepelling.GetComponent<Repelling>());
+            //Note: Using objAttracting == null doesn't work because of weird unity override voodoo.
+            if (objRepelling)
+            {
+                Repel(objRepelling.GetComponent<Repelling>());
+            }
         }
     }
 }
