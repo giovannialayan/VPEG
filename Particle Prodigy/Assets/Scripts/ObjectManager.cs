@@ -11,6 +11,8 @@ public class ObjectManager : MonoBehaviour
     public GameObject electronPrefab;
     public GameObject atomPrefab;
 
+    public SpriteRenderer overlayRenderer;
+
     //data structures to hold all particle objects in the current scene
     public List<GameObject> protons;
     public List<GameObject> neutrons;
@@ -34,6 +36,7 @@ public class ObjectManager : MonoBehaviour
         atoms = new List<Atom>();
 
         physicsEnabled = false;
+        overlayRenderer.enabled = true;
 
         /*test instantiation (comment me out pls)
         InstantiateSubParticle(Particle.proton, new Vector3(-2, -2, 0));
@@ -107,6 +110,7 @@ public class ObjectManager : MonoBehaviour
     public void TogglePhysics()
     {
         physicsEnabled = !physicsEnabled;
+        overlayRenderer.enabled = !physicsEnabled;
     }
 
     /// <summary>
@@ -116,6 +120,7 @@ public class ObjectManager : MonoBehaviour
     public void TogglePhysics(bool turnOn)
     {
         physicsEnabled = turnOn;
+        overlayRenderer.enabled = !turnOn;
     }
 
     /// <summary>

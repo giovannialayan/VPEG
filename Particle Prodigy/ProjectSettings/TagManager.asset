@@ -49,6 +49,12 @@ TagManager:
   - name: particles
     uniqueID: 840837289
     locked: 0
+  - name: paused overlay
+    uniqueID: 1769355713
+    locked: 0
   - name: toolbar
     uniqueID: 4091328857
+    locked: 0
+  - name: dragged particles
+    uniqueID: 376178163
     locked: 0

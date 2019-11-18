@@ -10,10 +10,12 @@ public class ParticleSelection : MonoBehaviour
     public Camera cam;
     private GameObject currentParticle;
     private CircleCollider2D currentCollider;
+    private SpriteRenderer currentRenderer;
     private Particle particle;
     private bool particleInHand = false;
     private bool isStartButton = false;
     private bool isResetButton = false;
+    private bool canMakeParticles = true;
 
     //set particle to which ever particle object this script is attatched to
     void Start()
@@ -33,18 +35,20 @@ public class ParticleSelection : MonoBehaviour
         {
             particle = Particle.neutron;
         }
-        else if(gameObject.name == "StartButton")
-        {
-            isStartButton = true;
-        }
         else if (gameObject.name == "ResetButton")
         {
             isResetButton = true;
+        }
+        else if(gameObject.name == "StartButton")
+        {
+            isStartButton = true;
         }
     }
 
     void Update()
     {
+        canMakeParticles = !objectManager.physicsEnabled;
+
         //make the particle the player is dragging follow the mouse
         if (particleInHand)
         {
@@ -64,15 +68,21 @@ public class ParticleSelection : MonoBehaviour
         }
         else if (!isStartButton)
         {
-            Vector3 mousePos = Input.mousePosition;
-            Vector3 mousePoint = cam.ScreenToWorldPoint(mousePos);
-            mousePos.z = 1;
-            currentParticle = objectManager.InstantiateSubParticle(particle, mousePoint);
+            if (canMakeParticles)
+            {
+                Vector3 mousePos = Input.mousePosition;
+                Vector3 mousePoint = cam.ScreenToWorldPoint(mousePos);
+                mousePos.z = 1;
+                currentParticle = objectManager.InstantiateSubParticle(particle, mousePoint);
 
-            currentCollider = currentParticle.GetComponent<CircleCollider2D>();
-            currentCollider.enabled = false;
+                currentCollider = currentParticle.GetComponent<CircleCollider2D>();
+                currentCollider.enabled = false;
 
-            particleInHand = true;
+                currentRenderer = currentParticle.GetComponent<SpriteRenderer>();
+                currentRenderer.sortingLayerName = "dragged particles";
+
+                particleInHand = true;
+            }
         }
         else
         {
@@ -87,19 +97,24 @@ public class ParticleSelection : MonoBehaviour
         {
             particleInHand = false;
 
-            //If current particle is placed back in the toolbar, destroy it.
-            if (toolbarRenderer.bounds.Contains((Vector2)currentParticle?.transform.position))
+            if (currentParticle)
             {
-                //Destroy(currentParticle);
-                objectManager.DestroyParticle(currentParticle);
-            }
-            else
-            {
-                currentCollider.enabled = true;
+                //If current particle is placed back in the toolbar, destroy it.
+                if (toolbarRenderer.bounds.Contains((Vector2)currentParticle.transform.position))
+                {
+                    //Destroy(currentParticle);
+                    objectManager.DestroyParticle(currentParticle);
+                }
+                else
+                {
+                    currentCollider.enabled = true;
+                    currentRenderer.sortingLayerName = "particles";
+                }
             }
 
             currentParticle = null;
             currentCollider = null;
+            currentRenderer = null;
         }
     }
 }
