@@ -76,7 +76,7 @@ public class ParticleSelection : MonoBehaviour
         }
         else
         {
-            objectManager.physicsEnabled = true;
+            objectManager.TogglePhysics(true);
         }
     }
 
@@ -91,6 +91,7 @@ public class ParticleSelection : MonoBehaviour
             if (toolbarRenderer.bounds.Contains((Vector2)currentParticle?.transform.position))
             {
                 Destroy(currentParticle);
+                //objectManager.DestroyParticle(currentParticle);
             }
             else
             {

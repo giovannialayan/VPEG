@@ -60,7 +60,10 @@ public class Repelling : Force
             {
                 if(proton.gameObject != gameObject)
                 {
-                    Repel(proton.GetComponent<Repelling>());
+                    if (proton)
+                    {
+                        Repel(proton.GetComponent<Repelling>());
+                    }
                 }
             }
         }

@@ -52,7 +52,8 @@ public class ObjectManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            physicsEnabled = true;
+            //physicsEnabled = true;
+            TogglePhysics(true);
         }
     }
 
@@ -98,5 +99,61 @@ public class ObjectManager : MonoBehaviour
         atoms.Add(newAtom.GetComponent<Atom>());
         atoms[atoms.Count - 1].Init(protons, neutrons, electrons);
         return newAtom;
+    }
+
+    /// <summary>
+    /// Sets physicsEnabled to the opposite of what it currently is.
+    /// </summary>
+    public void TogglePhysics()
+    {
+        physicsEnabled = !physicsEnabled;
+    }
+
+    /// <summary>
+    /// Sets physicsEnabled to a given bool.
+    /// </summary>
+    /// <param name="turnOn">Whether to turn on physics or not.</param>
+    public void TogglePhysics(bool turnOn)
+    {
+        physicsEnabled = turnOn;
+    }
+
+    /// <summary>
+    /// Removes a given particle from whatever list it should be in, and then destroys it.
+    /// </summary>
+    /// <param name="particle">The particle to destroy.</param>
+    public void DestroyParticle(GameObject particle)
+    {
+        //Note: List.Remove() returns false if the object is not in the list, and thus,
+        //causes no errors if the object is not in the list.
+        switch (particle.tag)
+        {
+            case "proton":
+                protons.Remove(particle);
+                break;
+
+            case "neutron":
+                neutrons.Remove(particle);
+                break;
+
+            case "electron":
+                electrons.Remove(particle);
+                break;
+
+            case "nucleus":
+            case "atom":
+                //This checks to see if particle has the atom script, and if it does, get it and remove it.
+                if (particle.TryGetComponent(out Atom particleAtom))
+                {
+                    atoms.Remove(particleAtom);
+                }
+                break;
+
+            default:
+                break;
+        }
+
+        //No matter what, destroy the particle.
+        Destroy(particle);
     }
 }
