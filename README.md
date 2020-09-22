@@ -1,3 +1,3 @@
 # VPEG
 
-F**kin particles, how do they work?
+Particles, how do they work?
